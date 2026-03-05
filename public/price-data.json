@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "name": "Starter",
+        "price": 29,
+        "isPopular": false,
+        "features": [
+            "Up to 10 projects",
+            "Basic analytics",
+            "Community support",
+            "1 GB storage"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Professional",
+        "price": 79,
+        "isPopular": true,
+        "features": [
+            "Unlimited projects",
+            "Advanced analytics",
+            "Priority support",
+            "100 GB storage",
+            "Custom domains",
+            "API access"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Enterprise",
+        "price": 199,
+        "isPopular": false,
+        "features": [
+            "Unlimited everything",
+            "Real-time analytics",
+            "Dedicated support",
+            "Unlimited storage",
+            "Custom branding",
+            "Advanced API",
+            "SLA guarantee"
+        ]
+    }
+]

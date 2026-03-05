@@ -11,31 +11,33 @@ const navigationData = [
 ];
 
 const links = navigationData.map((route) => (
-          <Link key={route.id} route={route}></Link>
-        ));
+  <Link key={route.id} route={route}></Link>
+));
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="flex justify-between">
-      <span className="flex gap-1.5 ml-4">
-        <p>
+      <span
+        className="flex gap-1.5 ml-4"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <p className="my-2">
           {isMenuOpen ? (
-            <X className="md:hidden"/>
+            <X className="md:hidden" />
           ) : (
-            <Menu
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            />
+            <Menu className="md:hidden" />
           )}
         </p>
-        <ul className="md:hidden">{links}</ul>
-        <h3>My Navbar</h3>
+        <ul
+          className={`md:hidden absolute duration-1000 ${isMenuOpen ? "top-10" : "-top-40"} bg-cyan-900`}
+        >
+          {links}
+        </ul>
+        <h3 className="ml-4 text-2xl">My Navbar</h3>
       </span>
-      <ul className="md:flex gap-2 hidden">
-        {links}
-      </ul>
+      <ul className="md:flex gap-2 hidden">{links}</ul>
       <button className="button">Login</button>
     </nav>
   );
