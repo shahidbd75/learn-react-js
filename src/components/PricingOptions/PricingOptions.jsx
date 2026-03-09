@@ -8,7 +8,7 @@ const PricingOptions = ({PriceOptionsPromise}) => {
 
     return (
         <div className='flex flex-wrap'>
-            {pricePlans.map((plan) => (<DaisyCard PriceOption={plan} />))}
+            {pricePlans.data.map((plan) => (<DaisyCard PriceOption={plan} />))}
         </div>
     );
 };

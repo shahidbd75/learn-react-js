@@ -2,10 +2,9 @@ import { Suspense } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import PricingOptions from "./components/PricingOptions/PricingOptions";
+import axios from "axios";
 
-const PriceOptionsPromise = fetch("price-data.json").then((response) =>
-  response.json(),
-);
+const PriceOptionsPromise = axios.get("price-data.json");
 function App() {
   return (
     <>
