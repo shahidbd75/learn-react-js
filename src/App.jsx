@@ -1,25 +1,42 @@
-import { Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import PricingOptions from "./components/PricingOptions/PricingOptions";
-import axios from "axios";
-
-const PriceOptionsPromise = axios.get("price-data.json");
+import About from "./components/About/About";
+import Layout from "./components/Layout/Layout";
+import Main from "./components/Main/Main";
+import Products from "./components/Products/Products";
+import Checkout from "./components/Checkout/Checkout";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <h1>Home from react router</h1>,
+  },
+  {
+    path: 'about',
+    Component: About,
+  },
+  {
+    path: 'layout',
+    Component: Layout,
+    children: [
+      {
+        index: true,
+        Component: Main,
+      },
+      {
+        path: 'products',
+        Component: Products,
+      },
+      {
+        path: 'checkout',
+        Component: Checkout,
+      }
+    ],
+  }
+]);
 function App() {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <Suspense
-          fallback={<span className="loading loading-spinner text-info"></span>}
-        >
-          <PricingOptions
-            PriceOptionsPromise={PriceOptionsPromise}
-          ></PricingOptions>
-        </Suspense>
-      </main>
+     <RouterProvider router={router} />
     </>
   );
 }
